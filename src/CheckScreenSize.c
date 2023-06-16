@@ -1,4 +1,3 @@
-#include <stdio.h> // 後で削除 (for debug)
 #include <ncurses.h>
 #include <unistd.h>
 #include "../include/CheckScreenSize.h"
