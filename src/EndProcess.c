@@ -1,6 +1,7 @@
 #include <ncurses.h>
 
-int end(){
+int endProcess()
+{
   endwin();
   return 0;
 }
