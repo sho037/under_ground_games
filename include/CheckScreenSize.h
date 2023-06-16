@@ -1,6 +1,6 @@
 /**
- * @file ScreenSetting.h
- * @brief ncurses screen setting
+ * @file CheckScreenSize.h
+ * @brief ncurses で画面サイズを取得する
  */
 
 /**
@@ -15,4 +15,4 @@ typedef struct
 /**
  * 画面サイズを設定する
  */
-int setScreenSize();
+int checkScreenSize();

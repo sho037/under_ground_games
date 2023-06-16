@@ -1,9 +1,11 @@
 #include <stdio.h>
-#include "../include/ScreenSetting.h"
+#include "../include/CheckScreenSize.h"
+#include "../include/EndProcess.h"
 
 int main(int argc, char const *argv[])
 {
   /* code */
-  setScreenSize();
+  checkScreenSize();
+  end();
   return 0;
 }
