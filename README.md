@@ -8,4 +8,16 @@
 
 　現在上記のみで動作確認済みですが、Dockerを利用し、他の環境でも動作するようにしたいと考えています。
 
-### ディレクトリ構成
+### 実行方法
+
+```bash
+$ git clone ${this_repository}
+$ cd under_ground_games
+$ docker-compose up -d
+$ docker-compose exec dev bash
+$ cd lib
+$ sh libinstall.sh
+$ cd ..
+$ meke
+$ ./ungames.exe
+```
