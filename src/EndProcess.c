@@ -3,5 +3,5 @@
 void endProcess()
 {
   endwin();
-  return 0;
+  return;
 }
