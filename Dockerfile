@@ -1,7 +1,9 @@
-FROM ubuntu:leatest
+FROM ubuntu:18.04
 
 WORKDIR /app
-RUN apt-get update && apt-get install -y \
+RUN apt-get update 
+RUN apt-get install -y \
+    wget \
     build-essential \
     gcc \
     git \
