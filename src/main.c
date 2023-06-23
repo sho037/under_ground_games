@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "../include/CheckScreenSize.h"
 #include "../include/EndProcess.h"
+#include <jansson.h>
 
 void printStatus(int status_code)
 {
