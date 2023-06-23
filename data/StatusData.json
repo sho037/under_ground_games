@@ -1,0 +1,24 @@
+{
+  "StatusData": [
+    {
+      "StatusCode": 0,
+      "Message": "Success"
+    },
+    {
+      "StatusCode": -1,
+      "Message": "Failure"
+    },
+    {
+      "StatusCode": -100,
+      "Message": "ファイルが見つかりません"
+    },
+    {
+      "StatusCode": -101,
+      "Message": "ファイルの読み込みに失敗しました"
+    },
+    {
+      "StatusCode": -102,
+      "Message": "ファイルの書き込みに失敗しました"
+    }
+  ]
+}
