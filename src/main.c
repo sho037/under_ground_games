@@ -24,5 +24,5 @@ int main(int argc, char const *argv[])
     printStatus(status_code);
   }
   endProcess();
-  return 0;
+  return status_code;
 }
