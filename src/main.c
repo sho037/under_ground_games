@@ -3,6 +3,8 @@
 #include <ncurses.h>
 #include <unistd.h>
 
+int status_code;
+
 typedef struct
 {
   int width;
@@ -48,8 +50,6 @@ void printStatus(int status_code)
 
 int main(int argc, char const *argv[])
 {
-  /* code */
-  int status_code;
   status_code = checkScreenSize();
   if (status_code != 0)
   {
