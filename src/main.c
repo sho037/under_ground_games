@@ -1,7 +1,38 @@
 #include <stdio.h>
-#include "../include/CheckScreenSize.h"
-#include "../include/EndProcess.h"
 #include <jansson.h>
+#include <ncurses.h>
+#include <unistd.h>
+
+typedef struct
+{
+  int width;
+  int height;
+} ScreenSize;
+
+ScreenSize getScreenSizeFromConfig()
+{
+  ScreenSize ScreenSize;
+  ScreenSize.width = 800;
+  ScreenSize.height = 600;
+  return ScreenSize;
+}
+
+int checkScreenSize()
+{
+  ScreenSize ScreenSize = getScreenSizeFromConfig();
+  initscr();
+
+  return 0;
+}
+
+
+/*
+  このプログラムが終了する際の処理を記述する
+*/
+void endProcess(){
+  endwin();
+  return;
+}
 
 void printStatus(int status_code)
 {
