@@ -27,7 +27,6 @@ int checkScreenSize()
   return 0;
 }
 
-
 /*
   このプログラムが終了する際の処理を記述する
 */
@@ -36,7 +35,7 @@ void endProcess(){
   return;
 }
 
-void printStatus(int status_code)
+void printStatus()
 {
   if (status_code == 0)
   {
@@ -48,13 +47,18 @@ void printStatus(int status_code)
   }
 }
 
+void process(){
+  if (checkScreenSize() != 0){
+    return;
+  }
+}
+
 int main(int argc, char const *argv[])
 {
-  status_code = checkScreenSize();
-  if (status_code != 0)
-  {
-    printStatus(status_code);
-  }
+  process();
+
+  printStatus();
+
   endProcess();
   return status_code;
 }
