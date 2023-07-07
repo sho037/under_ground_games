@@ -11,6 +11,46 @@ typedef struct
   int height;
 } ScreenSize;
 
+/*
+  このプログラムが終了する際の処理を記述する
+*/
+void endProcess()
+{
+  endwin();
+  return;
+}
+
+/*
+  StatusData.jsonを読み込み、その中身を返す
+  大域変数status_codeによって返す内容を変更する
+*/
+char *getStatusData(){
+  // JSONオブジェクトを入れる変数
+  json_error_t jerror;
+  json_t* root;
+
+  FILE *file = fopen("data/StatusData.json", "r");
+  if (!file){
+    fprintf(stderr, "error: in getStatusData: ファイル読み込み失敗\n");
+    endProcess();
+    exit(1);
+  }
+
+  root = json_loadf(file, 0, &jerror);
+  if (!root) {
+    fprintf(stderr, "error: in getStatusData: JSONパースエラー: 行 %d: %s\n", jerror.line, jerror.text);
+    fclose(file);
+    endProcess();
+    exit(1);
+  }
+
+  int test = json_integer_value(json_object_get(root, "test"));
+
+  fclose(file);
+
+  return ;
+}
+
 ScreenSize getScreenSizeFromConfig()
 {
   ScreenSize ScreenSize;
@@ -27,23 +67,15 @@ int checkScreenSize()
   return 0;
 }
 
-/*
-  このプログラムが終了する際の処理を記述する
-*/
-void endProcess(){
-  endwin();
-  return;
-}
-
 void printStatus()
 {
   if (status_code == 0)
   {
-    printf("Success.\n");
+    printf("バイバイ！\n");
   }
   else
   {
-    printf("Failed.\n");
+    printf("%s\n", getStatusData());
   }
 }
 
