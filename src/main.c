@@ -2,6 +2,7 @@
 #include <jansson.h>
 #include <ncurses.h>
 #include <unistd.h>
+#include "../include/UGGames.h"
 
 int status_code;
 
