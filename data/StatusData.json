@@ -13,12 +13,36 @@
       "Message": "ファイルが見つかりません"
     },
     {
-      "StatusCode": -101,
+      "StatusCode": -110,
       "Message": "ファイルの読み込みに失敗しました"
     },
     {
-      "StatusCode": -102,
+      "StatusCode": -111,
+      "Message":"error: in getScreenSizeFromConfig: ファイル読み込み失敗(data/ConfigData.json)"
+    },
+    {
+      "StatusCode": -120,
       "Message": "ファイルの書き込みに失敗しました"
+    },
+    {
+      "StatusCode": -200,
+      "Message": "JSONパースエラー"
+    },
+    {
+      "StatusCode": -210,
+      "Message": "error: in getScreenSizeFromConfig: JSONパースエラー: 行の読み込み"
+    },
+    {
+      "StatusCode": -211,
+      "Message": "error: in getScreenSizeFromConfig: JSONパースエラー: ScreenSizeがオブジェクトではありません"
+    },
+    {
+      "StatusCode": -212,
+      "Message": "error: in getScreenSizeFromConfig: JSONパースエラー: widthが整数ではありません"
+    },
+    {
+      "StatusCode": -213,
+      "Message": "error: in getScreenSizeFromConfig: JSONパースエラー: heightが整数ではありません"
     }
   ]
 }
