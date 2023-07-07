@@ -43,6 +43,10 @@
     {
       "StatusCode": -213,
       "Message": "error: in getScreenSizeFromConfig: JSONパースエラー: heightが整数ではありません"
+    },
+    {
+      "StatusCode": -500,
+      "Message": "error: 画面サイズの大きさが足りません！"
     }
   ]
 }

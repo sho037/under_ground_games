@@ -149,6 +149,16 @@ int checkScreenSize()
   ScreenSize ScreenSize = getScreenSizeFromConfig();
   initscr();
 
+  int max_x, max_y;
+
+  getmaxyx(stdscr, max_y, max_x);
+
+  if (max_x < ScreenSize.width || max_y < ScreenSize.height)
+  {
+    status_code = -500;
+    return status_code;
+  }
+
   return status_code;
 }
 
@@ -168,6 +178,8 @@ void process(){
   if (checkScreenSize() != 0){
     return;
   }
+
+  sleep(10);
 }
 
 int main(int argc, char const *argv[])
