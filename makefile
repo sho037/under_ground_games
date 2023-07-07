@@ -1,5 +1,5 @@
 main: src/main.c
-	gcc -o ungames.exe src/main.c -lncurses -ljansson
+	gcc -o uggames.exe src/main.c -lncurses -ljansson
 
 clean:
-	rm -f ungames.exe
+	rm -f uggames.exe
