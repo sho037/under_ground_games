@@ -101,7 +101,7 @@ int checkScreenSize()
   ScreenSize ScreenSize = getScreenSizeFromConfig();
   initscr();
 
-  return 0;
+  return status_code;
 }
 
 void printStatus()
