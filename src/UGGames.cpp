@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include <string>
 
 /**
  * メニュー画面を表示させる
@@ -14,7 +15,7 @@ int printMenu() {
   int ch;
   int selected = 0;
   int menu_num = 5;
-  char *menu[menu_num];
+  std::string menu[menu_num];
   menu[0] = "HTTPer";
   menu[1] = "Ubuntur";
   menu[2] = "Score";
@@ -32,7 +33,7 @@ int printMenu() {
       if (i == selected) {
         attron(A_REVERSE);
       }
-      mvprintw(i + 5, 5, menu[i]);
+      mvprintw(i + 5, 5, menu[i].c_str());
       attroff(A_REVERSE);
     }
     refresh();
