@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include "../include/PrintStatus.hpp"
 #include "../include/UGGames.hpp"
+#include "../include/common/CommonProcess.hpp"
 
 int status_code;
 
@@ -12,15 +13,6 @@ typedef struct
   int width;
   int height;
 } ScreenSize;
-
-/*
-  このプログラムが終了する際の処理を記述する
-*/
-void endProcess()
-{
-  endwin();
-  return;
-}
 
 ScreenSize getScreenSizeFromConfig()
 {
@@ -88,12 +80,6 @@ int checkScreenSize()
 
   getmaxyx(stdscr, max_y, max_x);
 
-  // debug
-  endwin();
-  fprintf(stderr, "max_x: %d\n", max_x);
-  fprintf(stderr, "max_y: %d\n", max_y);
-  sleep(3);
-
   if (max_x < ScreenSize.width || max_y < ScreenSize.height)
   {
     status_code = -500;
@@ -125,9 +111,11 @@ void process(){
 
 int main(int argc, char const *argv[])
 {
+  CommonProcess commonProcess;
+
   process();
   
-  endProcess();
+  commonProcess.endProcess();
 
   printStatusProcess();
 
