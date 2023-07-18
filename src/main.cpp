@@ -104,8 +104,6 @@ void printStatusProcess()
 
 void process(){
   if (isOkScreenSize() == false){
-    // debug
-    fprintf(stderr, "error: in main: 画面サイズが小さい\n");
     return;
   }
 

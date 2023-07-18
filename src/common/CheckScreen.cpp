@@ -28,12 +28,9 @@ bool isOkScreenSize()
   check_screen_size.width = atoi(json_data.getStrFromJsonData("ConfigData", data_path_width));
   check_screen_size.height = atoi(json_data.getStrFromJsonData("ConfigData", data_path_height));
 
-  //debug
-  fprintf(stderr, "width: %d, height: %d\n", width, height);
-  fprintf(stderr, "width: %d, height: %d\n", check_screen_size.width, check_screen_size.height);
-
   if (width < check_screen_size.width || height < check_screen_size.height)
   {
+    fprintf(stderr, "画面サイズが小さいです。\n現在のサイズ：width: %d, height: %d\n必要なサイズ：width: %d, height: %d\n", width, height, check_screen_size.width, check_screen_size.height);
     return false;
   }
   return true;
