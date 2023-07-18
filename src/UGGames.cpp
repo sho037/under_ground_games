@@ -70,7 +70,7 @@ int printMenu()
   }
 }
 
-int startUpUGGames()
+int UGGames()
 {
   return printMenu();
 }

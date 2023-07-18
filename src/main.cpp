@@ -29,7 +29,16 @@ void process()
     return;
   }
 
-  startUpUGGames();
+  switch (UGGames())
+  {
+  case 0:
+    status_code = 0;
+    break;
+  
+  default:
+    status_code = -1;
+    break;
+  }
 
   sleep(10);
 }
