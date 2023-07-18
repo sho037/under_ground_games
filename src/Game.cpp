@@ -12,8 +12,8 @@ Game::~Game()
 }
 
 /**
- * ゲームモードをセットする
- * @param game_name ゲームモード
+ * ゲームの名前をセットする
+ * @param game_name ゲームの名前
  */
 void Game::setGameName(std::string game_name)
 {
