@@ -74,19 +74,24 @@ int printMenu()
 int UGGames()
 {
   Game myGame;
+  bool is_game;
   switch (printMenu())
   {
   case 0:
-    myGame.setGameMode("HTTPer");
+    myGame.setGameName("HTTPer");
+    is_game = true;
     break;
   case 1:
-    myGame.setGameMode("Ubuntur");
+    myGame.setGameName("Ubuntur");
+    is_game = true;
     break;
   case 2:
-    // myGame.setGameMode("Score");
+    // myGame.setGameName("Score");
+    is_game = false;
     break;
   case 3:
-    // myGame.setGameMode("Settings");
+    // myGame.setGameName("Settings");
+    is_game = false;
     break;
   case 4:
     return 0;
@@ -96,7 +101,10 @@ int UGGames()
     break;
   }
 
-  
+  // if (is_game)
+  // {
+  //   myGame.printGameModeSelectionScreen();
+  // }
 
   return 0;
 }
