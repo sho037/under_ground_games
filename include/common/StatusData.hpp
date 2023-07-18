@@ -2,7 +2,7 @@
  * @file StatusData.hpp
  * @brief ステータスデータを管理するクラス
  * @details status_codeとmessageを管理する
-*/
+ */
 
 #include <vector>
 

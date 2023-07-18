@@ -7,7 +7,7 @@
  * @param status_code ステータスコード
  * @param message メッセージ
  * @return なし
-*/
+ */
 void addStatusData(int status_code, char *message)
 {
   StatusData status_data;
@@ -19,7 +19,7 @@ void addStatusData(int status_code, char *message)
 /**
  * エラーステータスがstatus_data_listに存在するかどうかを返す
  * エラーステータスはマイナスの値をとる
-*/
+ */
 bool hasErrorStatus()
 {
   for (auto status_data : status_data_list)

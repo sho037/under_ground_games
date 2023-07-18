@@ -80,12 +80,14 @@ const char *getStatusData(int status_code)
   return "test";
 }
 
-void printStatus(int status_code) {
+void printStatus(int status_code)
+{
   const char *status_message = getStatusData(status_code);
   printf("%s\n", status_message);
 }
 
-void printStatus(int status_code, const char *message) {
+void printStatus(int status_code, const char *message)
+{
   const char *status_message = getStatusData(status_code);
   printf("%s: %s\n", status_message, message);
 }

@@ -21,13 +21,15 @@ void printStatusProcess()
   }
 }
 
-void process(){
-  if (isOkScreenSize() == false){
+void process()
+{
+  if (isOkScreenSize() == false)
+  {
     status_code = -500;
     return;
   }
 
- startUpUGGames();
+  startUpUGGames();
 
   sleep(10);
 }
@@ -38,7 +40,7 @@ int main(int argc, char const *argv[])
 
   initscr();
   process();
-  
+
   commonProcess.endProcess();
 
   printStatusProcess();
