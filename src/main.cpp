@@ -5,6 +5,7 @@
 #include "../include/PrintStatus.hpp"
 #include "../include/UGGames.hpp"
 #include "../include/common/CommonProcess.hpp"
+#include "../include/common/CheckScreen.hpp"
 
 int status_code;
 
@@ -102,7 +103,9 @@ void printStatusProcess()
 }
 
 void process(){
-  if (checkScreenSize() != 0){
+  if (isOkScreenSize() == false){
+    // debug
+    fprintf(stderr, "error: in main: 画面サイズが小さい\n");
     return;
   }
 

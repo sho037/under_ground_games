@@ -2,9 +2,10 @@ class JsonData
 {
 private:
   /* data */
-  const char *changeStatusTypeToFileName(const char *status_type);
+  const char *changeDataTypeToFileName(const char *status_type);
+
 public:
   JsonData(/* args */);
   ~JsonData();
-  const char *getJsonData(const char *status_type, const char *object_name);
+  const char *getStrFromJsonData(const char *data_type, const std::vector<std::string> &objects);
 };
