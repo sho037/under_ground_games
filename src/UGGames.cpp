@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include <string>
+#include "../include/Game.hpp"
 
 /**
  * メニュー画面を表示させる
@@ -72,5 +73,30 @@ int printMenu()
 
 int UGGames()
 {
-  return printMenu();
+  Game myGame;
+  switch (printMenu())
+  {
+  case 0:
+    myGame.setGameMode("HTTPer");
+    break;
+  case 1:
+    myGame.setGameMode("Ubuntur");
+    break;
+  case 2:
+    // myGame.setGameMode("Score");
+    break;
+  case 3:
+    // myGame.setGameMode("Settings");
+    break;
+  case 4:
+    return 0;
+    break;
+  default:
+    return -501;
+    break;
+  }
+
+  
+
+  return 0;
 }

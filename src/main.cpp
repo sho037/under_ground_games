@@ -29,18 +29,7 @@ void process()
     return;
   }
 
-  switch (UGGames())
-  {
-  case 0:
-    status_code = 0;
-    break;
-  
-  default:
-    status_code = -1;
-    break;
-  }
-
-  sleep(10);
+  status_code = UGGames();
 }
 
 int main(int argc, char const *argv[])

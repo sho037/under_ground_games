@@ -47,6 +47,10 @@
     {
       "StatusCode": -500,
       "Message": "error: 画面サイズの大きさが足りません！"
+    },
+    {
+      "StatusCode": -501,
+      "Message": "error: 謎の選択が行われました！"
     }
   ]
 }
