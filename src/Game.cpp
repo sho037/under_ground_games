@@ -13,11 +13,11 @@ Game::~Game()
 
 /**
  * ゲームモードをセットする
- * @param game_mode ゲームモード
+ * @param game_name ゲームモード
  */
-void Game::setGameName(std::string game_mode)
+void Game::setGameName(std::string game_name)
 {
-    this->game_mode = game_mode;
+    this->game_name = game_name;
 }
 
 /**
