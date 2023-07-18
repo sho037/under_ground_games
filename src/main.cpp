@@ -27,6 +27,8 @@ void process(){
     return;
   }
 
+ startUpUGGames();
+
   sleep(10);
 }
 
@@ -34,6 +36,7 @@ int main(int argc, char const *argv[])
 {
   CommonProcess commonProcess;
 
+  initscr();
   process();
   
   commonProcess.endProcess();

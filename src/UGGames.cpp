@@ -15,6 +15,7 @@ int printMenu() {
   int ch;
   int selected = 0;
   int menu_num = 5;
+  int max_y, max_x;
   std::string menu[menu_num];
   menu[0] = "HTTPer";
   menu[1] = "Ubuntur";
@@ -26,6 +27,7 @@ int printMenu() {
   noecho();
   curs_set(0);
   keypad(stdscr, TRUE);
+  getmaxyx(stdscr, max_y, max_x);
 
   while (1) {
     clear();
@@ -33,7 +35,8 @@ int printMenu() {
       if (i == selected) {
         attron(A_REVERSE);
       }
-      mvprintw(i + 5, 5, menu[i].c_str());
+      // 真ん中に表示させる
+      mvprintw(max_y / 2 - menu_num / 2 + i, max_x / 2 - menu[i].length() / 2, menu[i].c_str());
       attroff(A_REVERSE);
     }
     refresh();
