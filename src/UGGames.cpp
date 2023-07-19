@@ -117,5 +117,7 @@ int UGGames()
     myPlayer.printPlayerScore();
   }
 
+  UGGames();
+
   return 0;
 }
