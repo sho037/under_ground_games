@@ -8,7 +8,7 @@ public:
   JsonData(/* args */);
   ~JsonData();
   const char *getStrFromJsonData(const char *data_type, const std::vector<std::string> &objects);
-  struct question_data getRondomQuestionData(const char *data_type);
+  struct question_data getRandomQuestionData(const char *data_type);
 };
 
 struct question_data

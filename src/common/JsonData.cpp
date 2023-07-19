@@ -125,7 +125,7 @@ const char *JsonData::getStrFromJsonData(const char *data_type, const std::vecto
  * @param data_type 読み込むJSONファイルの種類
  * @return 読み込んだJSONファイルのオブジェクトの内容 (struct question_data)
  */
-struct question_data JsonData::getRondomQuestionData(const char *data_type)
+struct question_data JsonData::getRandomQuestionData(const char *data_type)
 {
   struct question_data question_data;
 
@@ -141,7 +141,7 @@ struct question_data JsonData::getRondomQuestionData(const char *data_type)
   json_t *object_array = json_object_get(root, data_type);
   if (!json_is_array(object_array))
   {
-    fprintf(stderr, "error: in getRondomQuestionData: JSONファイルのオブジェクトが配列ではありません\n");
+    fprintf(stderr, "error: in getRandomQuestionData: JSONファイルのオブジェクトが配列ではありません\n");
     json_decref(root);
     closeFile();
     exit(1);
