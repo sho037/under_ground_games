@@ -13,7 +13,7 @@ void printStatusProcess()
 {
   if (status_code == 0)
   {
-    printf("バイバイ！\n");
+    printf("Good Bye！\n");
   }
   else
   {

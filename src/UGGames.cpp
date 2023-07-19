@@ -101,10 +101,10 @@ int UGGames()
     break;
   }
 
-  // if (is_game)
-  // {
-  //   myGame.printGameModeSelectionScreen();
-  // }
+  if (is_game)
+  {
+    myGame.printGameModeSelectionScreen();
+  }
 
   return 0;
 }

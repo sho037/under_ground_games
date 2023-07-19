@@ -8,4 +8,5 @@ public:
     Game();
     ~Game();
     void setGameName(std::string game_name);
+    const char *printGameModeSelectionScreen();
 };
