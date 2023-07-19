@@ -1,6 +1,8 @@
 #include <ncurses.h>
 #include <string>
+#include <ctime>
 #include "../include/Game.hpp"
+#include "../include/Player.hpp"
 
 /**
  * メニュー画面を表示させる
@@ -74,6 +76,7 @@ int printMenu()
 int UGGames()
 {
   Game myGame;
+  Player myPlayer;
   bool is_game;
   switch (printMenu())
   {
@@ -104,6 +107,10 @@ int UGGames()
   if (is_game)
   {
     myGame.printGameModeSelectionScreen();
+    clock_t start = clock();
+    // myGame.startGame();
+    clock_t end = clock();
+    myPlayer.setPlayerTime((double)(end - start) / CLOCKS_PER_SEC);
   }
 
   return 0;
