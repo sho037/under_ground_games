@@ -104,11 +104,13 @@ int UGGames()
     break;
   }
 
+  int correct_num = 0;
+
   if (is_game)
   {
     myGame.printGameModeSelectionScreen();
     clock_t start = clock();
-    // myGame.startGame();
+    correct_num = myGame.startGame();
     clock_t end = clock();
     myPlayer.setPlayerTime((double)(end - start) / CLOCKS_PER_SEC);
   }

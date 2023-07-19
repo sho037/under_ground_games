@@ -141,7 +141,7 @@ struct question_data JsonData::getRandomQuestionData(const char *data_type)
   json_t *object_array = json_object_get(root, data_type);
   if (!json_is_array(object_array))
   {
-    fprintf(stderr, "error: in getRandomQuestionData: JSONファイルのオブジェクトが配列ではありません\n");
+    fprintf(stderr, "error: in getRondomQuestionData: JSONファイルのオブジェクトが配列ではありません\n");
     json_decref(root);
     closeFile();
     exit(1);

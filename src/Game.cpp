@@ -3,6 +3,7 @@
 #include <locale.h>
 
 #include "../include/Game.hpp"
+#include "../include/QuestionAndAnswer.hpp"
 
 Game::Game()
 {
@@ -93,3 +94,63 @@ const char *Game::printGameModeSelectionScreen()
         }
     }
 }
+
+/**
+ * 出力されるべき選択肢の数を返す
+ * @param game_mode ゲームモード
+ * @return 選択肢の数
+*/
+int getQuestionNum(std::string game_mode)
+{
+    if (game_mode == "Easy")
+    {
+        return 3;
+    }
+    else if (game_mode == "Normal")
+    {
+        return 5;
+    }
+    else if (game_mode == "Hard")
+    {
+        return 10;
+    }
+    else
+    {
+        fprintf(stderr, "program error: in getQuestionNum: game_modeが不正\n");
+        exit(1);
+    }
+}
+
+/**
+ * ゲームを開始する
+ * @return 0: 正常終了
+ */
+int Game::startGame()
+{
+    // 正解数を保存
+    int correct_num = 0;
+
+    // ゲームを開始(10問)
+    for (int i = 0; i < 10; i++)
+    {
+        if (printQuestionScreen(game_name.c_str(), getQuestionNum(game_mode)))
+        {
+            correct_num++;
+        }
+    }
+
+    // 結果を表示
+    clear();
+    noecho();
+    curs_set(0);
+    keypad(stdscr, TRUE);
+    int max_y, max_x;
+    getmaxyx(stdscr, max_y, max_x);
+    mvprintw(max_y / 2, max_x / 2 - 5, "Result");
+    mvprintw(max_y / 2 + 1, max_x / 2 - 5, "%d / 10", correct_num);
+    refresh();
+    getch();
+
+    return correct_num;
+}
+

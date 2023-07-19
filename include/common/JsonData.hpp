@@ -1,3 +1,6 @@
+#include <vector>
+#include <string>
+
 class JsonData
 {
 private:
