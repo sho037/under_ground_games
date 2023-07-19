@@ -1,0 +1,209 @@
+{
+    "HTTPer": [
+        {
+            "id": 0,
+            "Output": "100",
+            "Question": "[Continue](Informational)\nThis is a temporary response that indicates everything is fine up to that point, and the client can proceed with the request. If the request has already been completed, the response can be ignored."
+        },
+        {
+            "id": 1,
+            "Output": "101",
+            "Question": "[Switching Protocols](Informational)\nThis means the server is switching protocols according to the client request."
+        },
+        {
+            "id": 2,
+            "Output": "200",
+            "Question": "[OK](Success)\nThis means the request is OK. This is the standard response for successful HTTP requests."
+        },
+        {
+            "id": 3,
+            "Output": "201",
+            "Question": "[Created](Success)\nThis means the request has been fulfilled and a new resource has been created."
+        },
+        {
+            "id": 4,
+            "Output": "202",
+            "Question": "[Accepted](Success)\nThis means the request has been accepted for processing, but the processing has not been completed."
+        },
+        {
+            "id": 5,
+            "Output": "203",
+            "Question": "[Non-Authoritative Information](Success)\nThis means the returned meta-information is from the cached copy instead of the origin server and therefore may be incorrect."
+        },
+        {
+            "id": 6,
+            "Output": "204",
+            "Question": "[No Content](Success)\nThis means the request has been successfully processed, but is not returning any content."
+        },
+        {
+            "id": 7,
+            "Output": "205",
+            "Question": "[Reset Content](Success)\nThis means the request has been successfully processed, but is not returning any content, and requires that the requester reset the document view."
+        },
+        {
+            "id": 8,
+            "Output": "206",
+            "Question": "[Partial Content](Success)\nThis means the server is delivering only part of the resource due to a range header sent by the client."
+        },
+        {
+            "id": 9,
+            "Output": "300",
+            "Question": "[Multiple Choices](Redirection)\nThis means the request has more than one possible response. The user-agent or user should choose one of them."
+        },
+        {
+            "id": 10,
+            "Output": "301",
+            "Question": "[Moved Permanently](Redirection)\nThis means the URL of the requested resource has been changed permanently. The new URL is given in the response."
+        },
+        {
+            "id": 11,
+            "Output": "302",
+            "Question": "[Found](Redirection)\nThis means the URL of the requested resource has been changed temporarily. The new URL is given in the response."
+        },
+        {
+            "id": 12,
+            "Output": "303",
+            "Question": "[See Other](Redirection)\nThis means the response to the request can be found under another URL using a GET method. When received in response to a POST (or PUT/DELETE), the client should presume that the server has received the data and should issue a redirect with a separate GET message."
+        },
+        {
+            "id": 13,
+            "Output": "304",
+            "Question": "[Not Modified](Redirection)\nThis means the requested resource has not been modified since the last request. The response contains the modified date of the requested resource."
+        },
+        {
+            "id": 14,
+            "Output": "305",
+            "Question": "[Use Proxy](Redirection)\nThis means the requested resource must be accessed through the proxy given by the location field."
+        },
+        {
+            "id": 15,
+            "Output": "306",
+            "Question": "[Unused](Redirection)\nThis code was used in a previous version of the HTTP/1.1 specification, is no longer used, and the code is reserved."
+        },
+        {
+            "id": 16,
+            "Output": "307",
+            "Question": "[Temporary Redirect](Redirection)\nThis means the requested resource is temporarily moved to the URL given in the response."
+        },
+        {
+            "id": 17,
+            "Output": "400",
+            "Question": "[Bad Request](Client Error)\nThis means the request cannot be fulfilled due to bad syntax."
+        },
+        {
+            "id": 18,
+            "Output": "401",
+            "Question": "[Unauthorized](Client Error)\nThis means the request was a legal request, but the server is refusing to respond to it. For use when authentication is possible but has failed or not yet been provided."
+        },
+        {
+            "id": 19,
+            "Output": "402",
+            "Question": "[Payment Required](Client Error)\nThis code is reserved for future use."
+        },
+        {
+            "id": 20,
+            "Output": "403",
+            "Question": "[Forbidden](Client Error)\nThis means the request was a legal request, but the server is refusing to respond to it."
+        },
+        {
+            "id": 21,
+            "Output": "404",
+            "Question": "[Not Found](Client Error)\nThis means the requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+        },
+        {
+            "id": 22,
+            "Output": "405",
+            "Question": "[Method Not Allowed](Client Error)\nThis means the method specified in the request is not allowed for the resource identified by the request URI."
+        },
+        {
+            "id": 23,
+            "Output": "406",
+            "Question": "[Not Acceptable](Client Error)\nThis means the resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request."
+        },
+        {
+            "id": 24,
+            "Output": "407",
+            "Question": "[Proxy Authentication Required](Client Error)\nThis means the client must first authenticate itself with the proxy."
+        },
+        {
+            "id": 25,
+            "Output": "408",
+            "Question": "[Request Timeout](Client Error)\nThis means the client did not produce a request within the time the server was prepared to wait."
+        },
+        {
+            "id": 26,
+            "Output": "409",
+            "Question": "[Conflict](Client Error)\nThis means the request could not be processed because of conflict in the request, such as an edit conflict."
+        },
+        {
+            "id": 27,
+            "Output": "410",
+            "Question": "[Gone](Client Error)\nThis means the resource requested is no longer available and will not be available again."
+        },
+        {
+            "id": 28,
+            "Output": "411",
+            "Question": "[Length Required](Client Error)\nThis means the request did not specify the length of its content, which is required by the requested resource."
+        },
+        {
+            "id": 29,
+            "Output": "412",
+            "Question": "[Precondition Failed](Client Error)\nThis means the server does not meet one of the preconditions that the requester put on the request."
+        },
+        {
+            "id": 30,
+            "Output": "413",
+            "Question": "[Request Entity Too Large](Client Error)\nThis means the request is larger than the server is willing or able to process."
+        },
+        {
+            "id": 31,
+            "Output": "414",
+            "Question": "[Request-URI Too Long](Client Error)\nThis means the URI provided was too long for the server to process."
+        },
+        {
+            "id": 32,
+            "Output": "415",
+            "Question": "[Unsupported Media Type](Client Error)\nThis means the request entity has a media type which the server or resource does not support."
+        },
+        {
+            "id": 33,
+            "Output": "416",
+            "Question": "[Requested Range Not Satisfiable](Client Error)\nThis means the client has asked for a portion of the file, but the server cannot supply that portion."
+        },
+        {
+            "id": 34,
+            "Output": "417",
+            "Question": "[Expectation Failed](Client Error)\nThis means the server cannot meet the requirements of the Expect request-header field."
+        },
+        {
+            "id": 35,
+            "Output": "500",
+            "Question": "[Internal Server Error](Server Error)\nThis means the server encountered an unexpected condition which prevented it from fulfilling the request."
+        },
+        {
+            "id": 36,
+            "Output": "501",
+            "Question": "[Not Implemented](Server Error)\nThis means the server does not support the facility required."
+        },
+        {
+            "id": 37,
+            "Output": "502",
+            "Question": "[Bad Gateway](Server Error)\nThis means the server received an invalid response from the upstream server it accessed in attempting to fulfill the request."
+        },
+        {
+            "id": 38,
+            "Output": "503",
+            "Question": "[Service Unavailable](Server Error)\nThis means the server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
+        },
+        {
+            "id": 39,
+            "Output": "504",
+            "Question": "[Gateway Timeout](Server Error)\nThis means the server was acting as a gateway or proxy and did not receive a timely response from the upstream server."
+        },
+        {
+            "id": 40,
+            "Output": "505",
+            "Question": "[HTTP Version Not Supported](Server Error)\nThis means the server does not support, or refuses to support, the HTTP protocol version that was used in the request message."
+        }
+    ]
+}

@@ -74,6 +74,14 @@ const char *JsonData::changeDataTypeToFileName(const char *data_type)
   {
     return "data/ConfigData.json";
   }
+  else if (strcmp(data_type, "HTTPer") == 0)
+  {
+    return "data/HTTPer.json";
+  }
+  else if (strcmp(data_type, "Ubuntur") == 0)
+  {
+    return "data/Ubuntur.json";
+  }
   else
   {
     fprintf(stderr, "program error: in changeDataTypeToFileName: status_typeが不正\n");
@@ -111,3 +119,47 @@ const char *JsonData::getStrFromJsonData(const char *data_type, const std::vecto
   // オブジェクトの内容を返す
   return json_string_value(object);
 }
+
+/**
+ * JSONファイルからランダムに一つ問題データを取得する
+ * @param data_type 読み込むJSONファイルの種類
+ * @return 読み込んだJSONファイルのオブジェクトの内容 (struct question_data)
+ */
+struct question_data JsonData::getRondomQuestionData(const char *data_type)
+{
+  struct question_data question_data;
+
+  file_name = changeDataTypeToFileName(data_type);
+
+  // ファイルを開く
+  openFile();
+
+  // JSONファイルを読み込む
+  loadJson();
+
+  // オブジェクトの内容を取得
+  json_t *object_array = json_object_get(root, data_type);
+  if (!json_is_array(object_array))
+  {
+    fprintf(stderr, "error: in getRondomQuestionData: JSONファイルのオブジェクトが配列ではありません\n");
+    json_decref(root);
+    closeFile();
+    exit(1);
+  }
+
+  // オブジェクトの数を取得
+  int numArgs = json_array_size(object_array);
+
+  // オブジェクトの内容をランダムに一つ取得
+  json_t *object = json_array_get(object_array, rand() % numArgs);
+
+  // オブジェクトの内容を返す
+  question_data.id = json_string_value(json_object_get(object, "id"));
+  question_data.output = json_string_value(json_object_get(object, "Output"));
+  question_data.question = json_string_value(json_object_get(object, "Question"));
+
+  // ファイルを閉じる
+  closeFile();
+
+  return question_data;
+};
