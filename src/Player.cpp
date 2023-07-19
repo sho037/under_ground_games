@@ -1,4 +1,5 @@
 #include <string>
+#include <ncurses.h>
 #include "../include/Player.hpp"
 Player::Player()
 {
@@ -34,6 +35,13 @@ void Player::setPlayerTime(double player_time)
     this->player_time = player_time;
 }
 
+/**
+ * プレイヤーの正解数を設定する
+ */
+void Player::setPlayerCorrectAnswerCount(int player_correct_answer_count)
+{
+    this->player_correct_answer_count = player_correct_answer_count;
+}
 
 /**
  * プレイヤー名を取得する
@@ -57,5 +65,30 @@ int Player::getPlayerScore()
 double Player::getPlayerTime()
 {
     return this->player_time;
+}
+
+/**
+ * プレイヤーのスコアを計算する
+*/
+void Player::calculatePlayerScore()
+{
+    this->player_score = (this->player_correct_answer_count * 10000) - (this->player_time * 100000);
+}
+
+/**
+ * プレイヤーのスコアを表示する
+ */
+void Player::printPlayerScore()
+{
+    clear();
+    noecho();
+    curs_set(0);
+    keypad(stdscr, TRUE);
+    int max_y, max_x;
+    getmaxyx(stdscr, max_y, max_x);
+    calculatePlayerScore();
+    mvprintw(max_y / 2, max_x / 2 - 5, "Your score is %d", this->player_score);
+    refresh();
+    getch();
 }
 

@@ -113,6 +113,8 @@ int UGGames()
     correct_num = myGame.startGame();
     clock_t end = clock();
     myPlayer.setPlayerTime((double)(end - start) / CLOCKS_PER_SEC);
+    myPlayer.setPlayerCorrectAnswerCount(correct_num);
+    myPlayer.printPlayerScore();
   }
 
   return 0;
