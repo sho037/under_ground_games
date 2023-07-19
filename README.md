@@ -15,9 +15,6 @@ $ git clone ${this_repository}
 $ cd under_ground_games
 $ docker-compose up -d
 $ docker-compose exec dev bash
-$ cd lib
-$ sh libinstall.sh
-$ cd ..
-$ meke
-$ ./ungames.exe
+$ make
+$ ./uggames.exe
 ```
