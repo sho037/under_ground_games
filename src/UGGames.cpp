@@ -6,6 +6,10 @@
 #include "../include/SettingScreen.hpp"
 #include "../include/ScoreScreen.hpp"
 
+Game myGame;
+Player myPlayer;
+SettingScreen mySettingScreen;
+
 /**
  * メニュー画面を表示させる
  *
@@ -77,9 +81,6 @@ int printMenu()
 
 int UGGames()
 {
-  Game myGame;
-  Player myPlayer;
-  SettingScreen mySettingScreen;
   bool is_game = false;
   switch (printMenu())
   {
