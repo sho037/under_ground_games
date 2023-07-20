@@ -3,6 +3,12 @@
 #include <ctime>
 #include "../include/Game.hpp"
 #include "../include/Player.hpp"
+#include "../include/SettingScreen.hpp"
+#include "../include/ScoreScreen.hpp"
+
+Game myGame;
+Player myPlayer;
+SettingScreen mySettingScreen;
 
 /**
  * メニュー画面を表示させる
@@ -75,9 +81,7 @@ int printMenu()
 
 int UGGames()
 {
-  Game myGame;
-  Player myPlayer;
-  bool is_game;
+  bool is_game = false;
   switch (printMenu())
   {
   case 0:
@@ -89,12 +93,10 @@ int UGGames()
     is_game = true;
     break;
   case 2:
-    // myGame.setGameName("Score");
-    is_game = false;
+    printScoreScreen();
     break;
   case 3:
-    // myGame.setGameName("Settings");
-    is_game = false;
+    mySettingScreen.printSettingScreen();
     break;
   case 4:
     return 0;
@@ -115,6 +117,8 @@ int UGGames()
     myPlayer.setPlayerTime((double)(end - start) / CLOCKS_PER_SEC);
     myPlayer.setPlayerCorrectAnswerCount(correct_num);
     myPlayer.printPlayerScore();
+    myPlayer.setPlayerName(mySettingScreen.getName());
+    myPlayer.savePlayerScore();
   }
 
   UGGames();
