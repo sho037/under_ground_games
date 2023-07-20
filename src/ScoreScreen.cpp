@@ -2,7 +2,6 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <unistd.h>
 
 #include "../include/ScoreScreen.hpp"
 #include "../include/common/JsonData.hpp"
@@ -24,9 +23,6 @@ void printScoreScreen()
     curs_set(0);
     keypad(stdscr, TRUE);
     getmaxyx(stdscr, max_y, max_x);
-    
-    // debug
-    sleep(5);
 
     // スコアの降順にソートする
     std::sort(scores.begin(), scores.end(), [](const struct score_data &a, const struct score_data &b) {
