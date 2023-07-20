@@ -77,7 +77,7 @@ int UGGames()
 {
   Game myGame;
   Player myPlayer;
-  bool is_game;
+  bool is_game = false;
   switch (printMenu())
   {
   case 0:
@@ -89,12 +89,8 @@ int UGGames()
     is_game = true;
     break;
   case 2:
-    // myGame.setGameName("Score");
-    is_game = false;
     break;
   case 3:
-    // myGame.setGameName("Settings");
-    is_game = false;
     break;
   case 4:
     return 0;
