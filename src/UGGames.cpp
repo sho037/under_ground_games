@@ -3,6 +3,7 @@
 #include <ctime>
 #include "../include/Game.hpp"
 #include "../include/Player.hpp"
+#include "../include/SettingScreen.hpp"
 
 /**
  * メニュー画面を表示させる
@@ -77,6 +78,7 @@ int UGGames()
 {
   Game myGame;
   Player myPlayer;
+  SettingScreen mySettingScreen;
   bool is_game = false;
   switch (printMenu())
   {
@@ -91,6 +93,7 @@ int UGGames()
   case 2:
     break;
   case 3:
+    mySettingScreen.printSettingScreen();
     break;
   case 4:
     return 0;
@@ -111,6 +114,7 @@ int UGGames()
     myPlayer.setPlayerTime((double)(end - start) / CLOCKS_PER_SEC);
     myPlayer.setPlayerCorrectAnswerCount(correct_num);
     myPlayer.printPlayerScore();
+    myPlayer.setPlayerName(mySettingScreen.getName());
   }
 
   UGGames();
