@@ -13,6 +13,7 @@ public:
   const char *getStrFromJsonData(const char *data_type, const std::vector<std::string> &objects);
   struct question_data getRandomQuestionData(const char *data_type);
   std::vector<struct score_data> getScoreData(const char *data_type);
+  void writeScoreData(const char *data_type, const char *name, int score);
 };
 
 struct question_data

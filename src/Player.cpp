@@ -1,6 +1,8 @@
 #include <string>
 #include <ncurses.h>
 #include "../include/Player.hpp"
+#include "../include/common/JsonData.hpp"
+
 Player::Player()
 {
     this->player_name = "Player";
@@ -92,3 +94,11 @@ void Player::printPlayerScore()
     getch();
 }
 
+/**
+ * プレイヤーのスコアを保存する
+*/
+void Player::savePlayerScore()
+{
+    JsonData json_data;
+    json_data.writeScoreData("ScoreData", this->player_name.c_str(), this->player_score);
+}

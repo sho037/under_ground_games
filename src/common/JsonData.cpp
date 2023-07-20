@@ -3,6 +3,7 @@
 #include <string>
 #include <cstring>
 #include <jansson.h>
+#include <unistd.h>
 #include "../../include/common/JsonData.hpp"
 
 // JSONオブジェクトを入れる変数
@@ -25,10 +26,10 @@ JsonData::~JsonData()
 /**
  *
  */
-void openFile()
+void openFile(const char *open_mode)
 {
   // ファイルを開く
-  file = fopen(file_name, "r");
+  file = fopen(file_name, open_mode);
   if (!file)
   {
     fprintf(stderr, "error: in getStrFromJsonData: ファイル読み込み失敗\nfile_name: %s\n", file_name);
@@ -105,7 +106,7 @@ const char *JsonData::getStrFromJsonData(const char *data_type, const std::vecto
   file_name = changeDataTypeToFileName(data_type);
 
   // ファイルを開く
-  openFile();
+  openFile("r");
 
   // JSONファイルを読み込む
   loadJson();
@@ -136,7 +137,7 @@ struct question_data JsonData::getRandomQuestionData(const char *data_type)
   file_name = changeDataTypeToFileName(data_type);
 
   // ファイルを開く
-  openFile();
+  openFile("r");
 
   // JSONファイルを読み込む
   loadJson();
@@ -190,7 +191,7 @@ std::vector<struct score_data> JsonData::getScoreData(const char *data_type)
   file_name = changeDataTypeToFileName(data_type);
 
   // ファイルを開く
-  openFile();
+  openFile("r");
 
   // JSONファイルを読み込む
   loadJson();
@@ -218,9 +219,62 @@ std::vector<struct score_data> JsonData::getScoreData(const char *data_type)
     score.score = json_integer_value(json_object_get(object, "score"));
     score_data.push_back(score);
   }
-  
+
   // ファイルを閉じる
   closeFile();
 
   return score_data;
+};
+
+/**
+ * スコアデータをJSONファイルに書き込む
+ * @param data_type 読み込むJSONファイルの種類
+ * @param name プレイヤー名
+ * @param score スコア
+ */
+void JsonData::writeScoreData(const char *data_type, const char *name, int score)
+{
+  file_name = changeDataTypeToFileName(data_type);
+
+  // ファイルを開く
+  openFile("r+");
+
+  // JSONファイルを読み込む
+  loadJson();
+
+  // オブジェクトの内容を取得
+  json_t *object_array = json_object_get(root, data_type);
+  if (!json_is_array(object_array))
+  {
+    fprintf(stderr, "error: in writeScoreData: JSONファイルのオブジェクトが配列ではありません\n");
+    json_decref(root);
+    closeFile();
+    exit(1);
+  }
+
+  // オブジェクトの数を取得
+  int numArgs = json_array_size(object_array);
+
+  // オブジェクトの内容を取得
+  json_t *object = json_object();
+  json_object_set_new(object, "id", json_integer(numArgs));
+  json_object_set_new(object, "name", json_string(name));
+  json_object_set_new(object, "score", json_integer(score));
+
+  // オブジェクトを配列に追加
+  json_array_append(object_array, object);
+
+  // ファイルを閉じる
+  closeFile();
+
+  // ファイルを開く
+  openFile("w");
+
+  // JSONファイルを書き込む
+  json_dumpf(root, file, JSON_INDENT(2));
+
+  // ファイルを閉じる
+  closeFile();
+
+  return;
 };

@@ -117,6 +117,7 @@ int UGGames()
     myPlayer.setPlayerCorrectAnswerCount(correct_num);
     myPlayer.printPlayerScore();
     myPlayer.setPlayerName(mySettingScreen.getName());
+    myPlayer.savePlayerScore();
   }
 
   UGGames();

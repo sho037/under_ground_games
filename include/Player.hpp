@@ -17,4 +17,5 @@ public:
     double getPlayerTime();
     void calculatePlayerScore();
     void printPlayerScore();
+    void savePlayerScore();
 };
