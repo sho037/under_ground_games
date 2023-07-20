@@ -1,0 +1,19 @@
+{
+  "ScoreData": [
+    {
+        "id": 0,
+        "name": "Player",
+        "score": 0
+    },
+    {
+        "id": 1,
+        "name": "Player hogemaru",
+        "score": 100
+    },
+    {
+        "id": 2,
+        "name": "Player hogemaru",
+        "score": -200
+    }
+  ]
+}

@@ -4,6 +4,7 @@
 #include "../include/Game.hpp"
 #include "../include/Player.hpp"
 #include "../include/SettingScreen.hpp"
+#include "../include/ScoreScreen.hpp"
 
 /**
  * メニュー画面を表示させる
@@ -91,6 +92,7 @@ int UGGames()
     is_game = true;
     break;
   case 2:
+    printScoreScreen();
     break;
   case 3:
     mySettingScreen.printSettingScreen();
